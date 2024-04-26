@@ -1,23 +1,22 @@
 package com.catnip.kokomputer.presentation.profile
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.catnip.kokomputer.R
-import com.catnip.kokomputer.databinding.FragmentHomeBinding
 import com.catnip.kokomputer.databinding.FragmentProfileBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
 
-    private val viewModel: ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

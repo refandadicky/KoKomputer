@@ -36,7 +36,8 @@
     <string name="text_cart_is_empty">Cart is Empty</string>
     <string name="shopping_summary">Shopping summary</string>
     <string name="total_quantity">x%s</string>
-
+    <string name="create_order_success">success</string>
+    <string name="close">close</string>
 
 
 </resources>

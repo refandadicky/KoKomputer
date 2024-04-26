@@ -14,10 +14,6 @@ import com.catnip.kokomputer.databinding.ItemCartProductBinding
 import com.catnip.kokomputer.databinding.ItemCartProductOrderBinding
 import com.catnip.kokomputer.utils.doneEditing
 
-/**
-Written with love by Muhammad Hermas Yuda Pamungkas
-Github : https://github.com/hermasyp
- **/
 class CartListAdapter(private val cartListener: CartListener? = null) :
     RecyclerView.Adapter<ViewHolder>() {
 
@@ -65,7 +61,7 @@ class CartListAdapter(private val cartListener: CartListener? = null) :
 class CartViewHolder(
     private val binding: ItemCartProductBinding,
     private val cartListener: CartListener?
-) : RecyclerView.ViewHolder(binding.root), ViewHolderBinder<Cart> {
+) : ViewHolder(binding.root), ViewHolderBinder<Cart> {
     override fun bind(item: Cart) {
         setCartData(item)
         setCartNotes(item)
@@ -105,7 +101,7 @@ class CartViewHolder(
 
 class CartOrderViewHolder(
     private val binding: ItemCartProductOrderBinding,
-) : RecyclerView.ViewHolder(binding.root), ViewHolderBinder<Cart> {
+) : ViewHolder(binding.root), ViewHolderBinder<Cart> {
     override fun bind(item: Cart) {
         setCartData(item)
         setCartNotes(item)

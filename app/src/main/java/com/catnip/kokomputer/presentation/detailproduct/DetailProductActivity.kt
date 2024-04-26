@@ -4,32 +4,22 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import com.catnip.kokomputer.R
-import com.catnip.kokomputer.data.datasource.cart.CartDataSource
-import com.catnip.kokomputer.data.datasource.cart.CartDatabaseDataSource
 import com.catnip.kokomputer.data.model.Product
-import com.catnip.kokomputer.data.repository.CartRepository
-import com.catnip.kokomputer.data.repository.CartRepositoryImpl
-import com.catnip.kokomputer.data.source.local.database.AppDatabase
 import com.catnip.kokomputer.databinding.ActivityDetailProductBinding
-import com.catnip.kokomputer.utils.GenericViewModelFactory
 import com.catnip.kokomputer.utils.proceedWhen
 import com.catnip.kokomputer.utils.toDollarFormat
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class DetailProductActivity : AppCompatActivity() {
     private val binding: ActivityDetailProductBinding by lazy {
         ActivityDetailProductBinding.inflate(layoutInflater)
     }
-    private val viewModel: DetailProductViewModel by viewModels {
-        val db = AppDatabase.getInstance(this)
-        val ds: CartDataSource = CartDatabaseDataSource(db.cartDao())
-        val rp: CartRepository = CartRepositoryImpl(ds)
-        GenericViewModelFactory.create(
-            DetailProductViewModel(intent?.extras, rp)
-        )
+    private val viewModel: DetailProductViewModel by viewModel {
+        parametersOf(intent.extras)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
